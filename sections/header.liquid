@@ -10,6 +10,94 @@
   Theme Store optional settings
   - Home page only: only shows on the home page
 {%- endcomment -%}
+
+<main class="main_wrapper">
+  <!--Header Start Here-->
+
+  <header class="main_header" role="banner">
+    <div class="search_top_header">
+      <a href="#"><img src="../boogie/img/icon_menu.png" alt="Menu" /></a>
+      <a href="#"><img src="../boogie/img/icon_search.png" alt="Search" /></a>
+    </div>
+    <div class="logo_top_header">
+      {% if template.name == 'index' %}
+        <h1>
+      {% else %}
+        <div class="h1">
+      {% endif %}
+          <a href="/" class="logo-image">
+            {% if section.settings.logo != blank %}
+              {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+              <img src="{{ section.settings.logo | img_url: image_size }}"
+                  srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                  alt="{{ section.settings.logo.alt | default: shop.name }}">
+            {% else %}
+              {{ shop.name }}
+            {% endif %}
+          </a>
+      {% if template.name == 'index' %}
+        </h1>
+      {% else %}
+        </div>
+      {% endif %}
+    </div>
+    <div class="account_top_wrap">
+      <ul>
+        <li>
+          <a href="#"><img src="../boogie/img/icon_fav.png" alt="Add to Favourate" /></a>
+        </li>
+        {% if shop.customer_accounts_enabled %}
+          <ul>
+            {% if customer %}
+              <li>
+                {% if customer.first_name != blank %}
+                  {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
+                  {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
+                {% else %}
+                  <a href="/account">{{ 'layout.customer.account' | t }}</a>
+                {% endif %}
+              </li>
+              <li>
+                {{ 'layout.customer.log_out' | t | customer_logout_link }}
+              </li>
+            {% else %}
+              <li>
+                {{ 'layout.customer.log_in' | t | customer_login_link }}
+              </li>
+              <li>
+                {{ 'layout.customer.create_account' | t | customer_register_link }}
+              </li>
+            {% endif %}
+          </ul>
+        {% endif %}
+        <li>
+          <a href="/cart">
+            {% include 'icon-cart' %}
+            {{ 'layout.cart.title' | t }}
+            ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!--Header End Here-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section data-section-id="{{ section.id }}" data-section-type="header">
   {%- if section.settings.announcement_bar_enabled -%}
     <div>
