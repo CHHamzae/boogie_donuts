@@ -1,3 +1,128 @@
+<section class="product_detail_wrapper">
+  <div class="product_image_wrap">
+    <img src="../boogie/img/product_img.png" />
+
+    <span class="new_tag">New</span>
+    <span class="sale_tag">20% Off</span>
+  </div>
+
+  <div class="product_description_wrap">
+    <h2 class="d_product_title">Product Name</h2>
+    <span class="d_small_desc">(contains deez nuts)</span>
+
+    <div class="d_reviews_wrap">
+      <img src="../boogie/img/icon_reviews.png" />
+      <h4>2 reviews</h4>
+    </div>
+
+    <div class="d_price_wrap">
+      <span class="d_discount_price">4.50$</span>
+      <span class="d_regular_price">3.50$</span>
+      <span class="discount_notice">sale offer until 19.02.22</span>
+    </div>
+
+    <div class="d_cart_btn">
+      <a class="d_cart_btn" href="#">Add to Cart</a>
+
+      <div class="number-input">
+        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+        <input class="quantity" min="0" name="quantity" value="1" type="number" />
+        <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="d_bio">
+    <h4>Produktbeschreibung</h4>
+
+    <p>
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+      Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+      erat, sed diam voluptua. At vero eos et accusam et justo
+    </p>
+  </div>
+</section>
+
+<section class="product_slider_wrapper product_slider_wrapper_orangebg product_related">
+  <div class="container">
+    <h2 class="section_title">Related products</h2>
+
+    <ul class="related">
+      <li>
+        <a class="product_img" href="product-detail.html"><img src="../boogie/img/product_img.png" alt="Product Name" /></a>
+        <div class="product_desc_box">
+          <h3><a href="product-detail.html">Product Name</a></h3>
+          <p>Price $</p>
+          <div class="btn_product">
+            <a href="#">Add to Cart</a>
+            <a href="#"><img src="../boogie/img/icon_fav_red.png" /></a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a class="product_img" href="#"><img src="../boogie/img/product_img.png" alt="Product Name" /></a>
+        <div class="product_desc_box">
+          <h3><a href="#">Product Name</a></h3>
+          <p>Price $</p>
+          <div class="btn_product">
+            <a href="#">Add to Cart</a>
+            <a href="#"><img src="../boogie/img/icon_fav_red.png" /></a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a class="product_img" href="#"><img src="../boogie/img/product_img.png" alt="Product Name" /></a>
+        <div class="product_desc_box">
+          <h3><a href="#">Product Name</a></h3>
+          <p>Price $</p>
+          <div class="btn_product">
+            <a href="#">Add to Cart</a>
+            <a href="#"><img src="../boogie/img/icon_fav_red.png" /></a>
+          </div>
+        </div>
+      </li>
+      <li>
+        <a class="product_img" href="#"><img src="../boogie/img/product_img.png" alt="Product Name" /></a>
+        <div class="product_desc_box">
+          <h3><a href="#">Product Name</a></h3>
+          <p>Price $</p>
+          <div class="btn_product">
+            <a href="#">Add to Cart</a>
+            <a href="#"><img src="../boogie/img/icon_fav_red.png" /></a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <section data-section-id="{{ section.id }}" data-section-type="product">
 
   {%- assign current_variant = product.selected_or_first_available_variant -%}
