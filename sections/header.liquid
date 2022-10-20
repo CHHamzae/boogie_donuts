@@ -37,7 +37,16 @@
             <a href="#"><img src="../boogie/img/icon_search.png" alt="Search" /></a>
           </div>
           <div class="logo_top_header">
-            <a href="index.html"><img src="../boogie/img/boogiedonuts-logo.png" alt="Boogie Donults" /></a>
+            <a href="/" class="logo-image">
+              {% if section.settings.logo != blank %}
+                {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+                <img src="{{ section.settings.logo | img_url: image_size }}"
+                    srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                    alt="{{ section.settings.logo.alt | default: shop.name }}">
+              {% else %}
+                {{ shop.name }}
+              {% endif %}
+            </a>
           </div>
           <div class="account_top_wrap">
             <ul>
