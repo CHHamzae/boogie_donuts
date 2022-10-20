@@ -8,12 +8,12 @@
   <div class="product_image_wrap">
     {% for image in product.images %}
       {% capture wrapper_class %}
-        {%- unless featured_image == image -%}
+        {%- unless featured_image == img_url: '600x600' -%}
           hide
         {%- endunless -%}
       {% endcapture %} 
       {% include 'responsive-image' with
-        image: image,
+        image: 600 x 600,
         width: 600,
         height: 600,
         max_width: 700,
