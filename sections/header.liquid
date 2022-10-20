@@ -57,7 +57,10 @@
                 <a href="#"><img src="../boogie/img/icon_user.png" alt="My Account" /></a>
               </li>
               <li>
-                <a href="cart.html"><img src="../boogie/img/icon_basket.png" alt="Cart" /><span>2</span></a>
+                <a href="/cart">
+                  <span class="icon icon-cart"></span>
+                  {{ 'layout.cart.cart' | t }} <span class="cart-count cart-badge--desktop {% if cart.item_count == 0 %}hidden-count{% endif %}">{{ cart.item_count }}</span>
+                </a>
               </li>
             </ul>
           </div>
