@@ -1,9 +1,40 @@
-<section class="product_detail_wrapper">
-  <div class="product_image_wrap">
-    <img src="../boogie/img/product_img.png" />
+<section class="product_detail_wrapper" data-section-id="{{ section.id }}" data-section-type="product">
 
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+  {%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+
+
+
+  <div class="product_image_wrap">
+    {% for image in product.images %}
+      {% capture wrapper_class %}
+        {%- unless featured_image == image -%}
+          hide
+        {%- endunless -%}
+      {% endcapture %} 
+      {% include 'responsive-image' with
+        image: image,
+        max_width: 700,
+        max_height: 800,
+        image_attributes: "data-product-featured-image",
+        wrapper_class: wrapper_class,
+        wrapper_attributes: "data-product-image-wrapper",
+      %}
+    {% endfor %}
     <span class="new_tag">New</span>
     <span class="sale_tag">20% Off</span>
+
+    {% if product.images.size > 1 %}
+      <ul>
+        {% for image in product.images %}
+          <li>
+            <a href="{{ image.src | img_url: '480x480' }}" data-thumbnail-id="{{ image.id }}" data-product-single-thumbnail{% if featured_image == image %} aria-current="true"{% endif %}>
+              <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '160x160' }}" alt="{{ image.alt | escape }}">
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
   </div>
 
   <div class="product_description_wrap">
