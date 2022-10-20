@@ -31,7 +31,9 @@
   {%- endif -%}
 
   {% include 'social-meta-tags' %}
+ {% comment %}
   {% include 'style-tags', layout: 'theme' %}
+{% endcomment %}
   {% include 'css-variables' %}
 
   {{ 'style.css' | asset_url | stylesheet_tag }}
@@ -49,9 +51,9 @@
       moneyFormat: {{ shop.money_format | json }}
     };
   </script>
-
+  {% comment %}
   {% include 'script-tags', layout: 'theme' %}
-
+{% endcomment %}
   {{ content_for_header }}
 </head>
 
