@@ -58,10 +58,8 @@
               </li>
               <li>
                 <a href="/cart">
-                  <img src="https://cdn.shopify.com/s/files/1/0524/8683/2288/files/icon_basket.png?v=1666288367" alt="My Account" />
-                  {{ 'layout.cart.title' | t }}
-                  
-                  <span>{{ cart.item_count }}</span>
+                  <img src="https://cdn.shopify.com/s/files/1/0524/8683/2288/files/icon_basket.png?v=1666288367" alt="My Account" />            
+                  <span>(<{{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }}>)</span>
                 </a>
               </li>
             </ul>
