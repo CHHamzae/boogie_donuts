@@ -54,28 +54,30 @@
                 <a href="#"><img src="../boogie/img/icon_fav.png" alt="Add to Favourate" /></a>
               </li>
               {% if shop.customer_accounts_enabled %}
-                <ul>
+                <li>
+                  <img src="https://cdn.shopify.com/s/files/1/0524/8683/2288/files/icon_user.png?v=1666288367" alt="My Account" />  
+               
                   {% if customer %}
-                    <li>
+                    <a>
                       {% if customer.first_name != blank %}
                         {% capture first_name %}<a href="/account">{{ customer.first_name }}</a>{% endcapture %}
                         {{ 'layout.customer.logged_in_as_html' | t: first_name: first_name }}
                       {% else %}
                         <a href="/account">{{ 'layout.customer.account' | t }}</a>
                       {% endif %}
-                    </li>
-                    <li>
+                    </a>
+                    <a>
                       {{ 'layout.customer.log_out' | t | customer_logout_link }}
-                    </li>
+                    </a>
                   {% else %}
-                    <li>
+                    <a>
                       {{ 'layout.customer.log_in' | t | customer_login_link }}
-                    </li>
-                    <li>
+                    </a>
+                    <a>
                       {{ 'layout.customer.create_account' | t | customer_register_link }}
-                    </li>
+                    </a>
                   {% endif %}
-                </ul>
+                </li>
               {% endif %}
               <li>
                 <a href="/cart">
