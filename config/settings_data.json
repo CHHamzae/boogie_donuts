@@ -1,5 +1,8 @@
 {
   "current": {
+    "color_accent": "#2b9bff",
+    "color_body_text": "#a10000",
+    "color_main_bg": "#ffffff",
     "sections": {
       "collection-list": {
         "type": "collection-list",
